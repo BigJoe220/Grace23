@@ -4,9 +4,9 @@ const { createStudent, findAll, findOne, update,Delete } =
 
 router.post("/student", createStudent)
 router.get("/student", findAll)
-router.get("/student", findOne)
+router.get("/student/:id", findOne)
 router.put("/studentupdate/:id", update)
-router.delete("/student:id", Delete)
+router.delete("/student/:id", Delete)
 
 
 module.exports = router

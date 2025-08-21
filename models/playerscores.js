@@ -4,7 +4,7 @@ const {
 } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 module.exports = (sequelize, DataTypes) => {
-  class playerdb extends Model {
+  class playerscores extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -14,17 +14,20 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  playerdb.init({
+  playerscores.init({
     id: {
-      type:DataTypes.UUID,
-    primaryKey:true,defaultValue:uuidv4},
-    playerName: DataTypes.STRING,
-    playerAge: DataTypes.INTEGER,
-    playerCountry: DataTypes.STRING,
-    playerWages: DataTypes.STRING
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      defaultValue:uuidv4
+    },
+    goals: DataTypes.INTEGER,
+    assist: DataTypes.INTEGER,
+    redCard: DataTypes.INTEGER,
+    yellowCard: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'playerdb',
+    modelName: 'playerscores',
   });
-  return playerdb;
+  return playerscores;
 };
